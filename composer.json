@@ -1,0 +1,25 @@
+{
+  "name": "pccomponentes/domain-event-publisher",
+  "description": "Domain event publisher",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Alberto Vioque",
+      "email": "alberto.vioque@pccomponentes.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PcComponentes\\DomainEventPublisher\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.4",
+    "symfony/messenger": "^4.0",
+    "pccomponentes/ddd": "^1.2"
+  },
+  "require-dev": {
+    "pccomponentes/coding-standard": "^1.0"
+  }
+}
