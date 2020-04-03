@@ -6,10 +6,11 @@ namespace PcComponentes\DomainEventPublisher\Middleware;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Middleware\StackInterface;
 use PcComponentes\DomainEventPublisher\DomainEventPublisher;
+use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use Pccomponentes\Ddd\Infrastructure\Repository\EventStoreRepository;
 use PcComponentes\DomainEventPublisher\Subscriber\CollectInMemoryDomainEventSubscriber;
 
-class EventStoreMiddleware
+class EventStoreMiddleware implements MiddlewareInterface
 {
     private EventStoreRepository $eventStore;
 

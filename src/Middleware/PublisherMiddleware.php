@@ -8,9 +8,10 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Middleware\StackInterface;
 use PcComponentes\DomainEventPublisher\DomainEventPublisher;
 use Symfony\Component\Messenger\Transport\AmqpExt\AmqpStamp;
+use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use PcComponentes\DomainEventPublisher\Subscriber\CollectInMemoryDomainEventSubscriber;
 
-class PublisherMiddleware
+class PublisherMiddleware implements MiddlewareInterface
 {
     private MessageBusInterface $eventBus;
 

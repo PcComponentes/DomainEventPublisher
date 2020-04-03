@@ -7,6 +7,22 @@
     {
       "name": "Alberto Vioque",
       "email": "alberto.vioque@pccomponentes.com"
+    },
+    {
+      "name": "Sergio Castaño",
+      "email": "sergioc.hernandez@pccomponentes.com"
+    },
+    {
+      "name": "Chechu García",
+      "email": "franciscoj.morote@pccomponentes.com"
+    },
+    {
+      "name": "Jafet López",
+      "email": "jafet.juan@pccomponentes.com"
+    },
+    {
+      "name": "Jorge Cano",
+      "email": "jorge.cano@pccomponentes.com"
     }
   ],
   "autoload": {
