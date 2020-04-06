@@ -7,6 +7,7 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Middleware\StackInterface;
 use PcComponentes\DomainEventPublisher\DomainEventPublisher;
 use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
+use PcComponentes\DomainEventPublisher\SubscriberExistException;
 use PcComponentes\DomainEventPublisher\Subscriber\CollectInMemoryDomainEventSubscriber;
 
 class AddSubscriberToDomainEventPublisherMiddleware implements MiddlewareInterface
@@ -14,9 +15,11 @@ class AddSubscriberToDomainEventPublisherMiddleware implements MiddlewareInterfa
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
     {
         $domainEventPublisher = DomainEventPublisher::instance();
-        $domainEventCollector = $domainEventPublisher->subscribe(new CollectInMemoryDomainEventSubscriber());
 
-        $domainEventCollector->clearEvents();
+        try {
+            $domainEventPublisher->subscribe(new CollectInMemoryDomainEventSubscriber());
+        } catch (SubscriberExistException $exception) {
+        }
 
         return $stack->next()->handle($envelope, $stack);
     }

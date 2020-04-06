@@ -33,11 +33,14 @@ class DomainEventPublisher
         throw new \BadMethodCallException('Clone is not supported');
     }
 
+    /**
+     * @throws SubscriberExistException
+     */
     public function subscribe(DomainEventSubscriber $subscriber): DomainEventSubscriber
     {
         $foundSubscriber = $this->findSubscriberByClassName(get_class($subscriber));
         if (null !== $foundSubscriber) {
-            return $foundSubscriber;
+            throw new SubscriberExistException();
         }
 
         $id = $this->id;
