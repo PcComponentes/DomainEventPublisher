@@ -22,13 +22,8 @@ class EventStoreMiddleware implements MiddlewareInterface
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
     {
         $result = $stack->next()->handle($envelope, $stack);
-        $events = DomainEventPublisher::instance()
-            ->findSubscriberByClassName(CollectInMemoryDomainEventSubscriber::class)
-            ->events();
 
-        foreach ($events as $event) {
-            $this->eventStore->add($event);
-        }
+        $this->eventStore->add($envelope->getMessage());
 
         return $result;
     }
