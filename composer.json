@@ -33,7 +33,7 @@
   "require": {
     "php": "^7.4",
     "symfony/messenger": "^4.0",
-    "pccomponentes/ddd": "^1.2"
+    "pccomponentes/ddd": "^2.0"
   },
   "require-dev": {
     "pccomponentes/coding-standard": "^1.0"
