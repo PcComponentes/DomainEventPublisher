@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace PcComponentes\DomainEventPublisher;
 
-use Pccomponentes\Ddd\Util\Message\Message;
+use PcComponentes\Ddd\Util\Message\Message;
 
 interface DomainEventSubscriber
 {
